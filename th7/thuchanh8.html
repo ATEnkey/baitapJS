@@ -1,0 +1,48 @@
+<!doctype html>
+<Html lang="en">
+
+<head>
+    <meta charaset="utf-8">
+    <title>thuc hanh 8</title>
+    <script>
+        class Mobile {
+            constructor(number, brand, messages) {
+                this.number = number;
+                this.brand = brand;
+                this.message = [];
+            }
+            sendMessage(message, recipient) {
+                console.log(`Sending message "${message}" from ${this.number} to ${recipient.number}`);
+                this.storeRecipient(message, recipient);
+                this.displayRecipientMessage(recipient);
+                this.storeMessage(message);
+                this.displeyMessage();
+            }
+            // storeRecipient(message, recipient){
+            //     recipient.messages.push(message);
+            storeRecipient(message, recipient){
+                recipient.messages.push(message);
+            }
+            storeMessage(message){
+                this.message.push(message);
+            }
+            displayRecioientMessage(recipient){
+                console.log('Recipient');
+                console.log(recipient.message);
+            }
+        }
+        const iphone_14promax = new Mobile("ipneko", "Apple");
+        const galaxy_s23 = new Mobile("Phong","SamSung");
+        const oppo_find11 = new Mobile("Tien", "OPPO");
+
+        iphone_14promax.sendMessage("xin chao", galaxy_s23);
+        galaxy_s23.sendMessage("chao cc", iphone_14promax);
+        iphone_14promax.sendMessage("dong tien phat di", galaxy_s23)
+
+        const phone1 = new Mobile("123-456-7890");
+        const phone2 = new Mobile("098-765-4321");
+        phone1.sendMessage("xin chao", phone2);
+    </script>
+</head>
+
+</Html>
